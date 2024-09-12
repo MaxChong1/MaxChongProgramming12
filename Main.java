@@ -7,6 +7,10 @@ public class Main {
         double xCoor = scan.nextDouble();
         double yCoor = scan.nextDouble();
 
+        //(+, +) = quadrant 1
+        //(-, +) = quadrant 2
+        //(-, -) = quadrant 3
+        //(+, -) = quadrant 4
         if(xCoor == 0.0 && yCoor == 0.0){
             System.out.println("Origin");
         } else if (xCoor >= 0 && yCoor >= 0) {

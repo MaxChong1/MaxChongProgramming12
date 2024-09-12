@@ -1,0 +1,1 @@
+Detects if there is a happy emoticon :-) or a sad emoticon :-(

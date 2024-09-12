@@ -1,27 +1,34 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args){
-        Scanner scan = new Scanner(System.in);
+    public static void main(String[] args) throws FileNotFoundException {
+        File file = new File("happyorsad.txt");
+        Scanner scan = new Scanner(file);
 
-        double xCoor = scan.nextDouble();
-        double yCoor = scan.nextDouble();
+        int happyCounter = 0;
+        int sadCounter = 0;
+        String[] line = scan.nextLine().split(" ");
 
-        //(+, +) = quadrant 1
-        //(-, +) = quadrant 2
-        //(-, -) = quadrant 3
-        //(+, -) = quadrant 4
-        if(xCoor == 0.0 && yCoor == 0.0){
-            System.out.println("Origin");
-        } else if (xCoor >= 0 && yCoor >= 0) {
-            System.out.println("Quadrant 1");
-        } else if (xCoor < yCoor) {
-            System.out.println("Quadrant 2");
-        } else if (xCoor <= 0 && yCoor <= 0){
-            System.out.println("Quadrant 3");
-        } else if (xCoor > yCoor){
-            System.out.println("Quadrant 4");
+        for (int i = 0; i < line.length; i++) {
+            if(line[i].equals(":-)")){
+                happyCounter++;
+            } else if (line[i].equals(":-(")){
+                sadCounter++;
+            }
         }
+
+        if(happyCounter == sadCounter){
+            System.out.println("unsure");
+        } else if (happyCounter == 0 && sadCounter == 0){
+            System.out.println("none");
+        } else if (happyCounter < sadCounter){
+            System.out.println("sad");
+        } else if (happyCounter > sadCounter){
+            System.out.println("happy");
+        }
+
 
 
     }
